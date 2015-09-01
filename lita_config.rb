@@ -1,6 +1,6 @@
 Lita.configure do |config|
   # The name your robot will use.
-  config.robot.name = "Lita"
+  config.robot.name = "lita"
 
   # The locale code for the language to use.
   # config.robot.locale = :en
@@ -9,6 +9,7 @@ Lita.configure do |config|
   # :debug, :info, :warn, :error, :fatal
   # Messages at the selected level and above will be logged.
   config.robot.log_level = :info
+	
 
   # An array of user IDs that are considered administrators. These users
   # the ability to add and remove other users from authorization groups.
@@ -17,7 +18,8 @@ Lita.configure do |config|
 
   # The adapter you want to connect with. Make sure you've added the
   # appropriate gem to the Gemfile.
-  config.robot.adapter = :shell
+  config.robot.adapter = :slack
+  config.adapters.slack.token =  ENV['SLACK_TOKEN']
 
   ## Example: Set options for the chosen adapter.
   # config.adapter.username = "myname"
