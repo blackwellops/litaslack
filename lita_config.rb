@@ -8,8 +8,7 @@ Lita.configure do |config|
   # The severity of messages to log. Options are:
   # :debug, :info, :warn, :error, :fatal
   # Messages at the selected level and above will be logged.
-  config.robot.log_level = :info
-	
+  config.robot.log_level = :info	
 
   # An array of user IDs that are considered administrators. These users
   # the ability to add and remove other users from authorization groups.
@@ -21,6 +20,11 @@ Lita.configure do |config|
   config.robot.adapter = :slack
   config.adapters.slack.token =  ENV['SLACK_TOKEN']
 
+	
+  config.handlers.google_images.safe_search = :medium
+  config.handlers.google_images.google_cse_id = ENV['GOOGLE_CSE_ID']
+  config.handlers.google_images.google_cse_key = ENV['GOOGLE_CSE_KEY']
+
   ## Example: Set options for the chosen adapter.
   # config.adapter.username = "myname"
   # config.adapter.password = "secret"
@@ -29,6 +33,8 @@ Lita.configure do |config|
   # config.redis.host = "127.0.0.1"
   # config.redis.port = 1234
 
+  config.redis[:host] = "redis"	
+	
   ## Example: Set configuration for any loaded handlers. See the handler's
   ## documentation for options.
   # config.handlers.some_handler.some_config_key = "value"
